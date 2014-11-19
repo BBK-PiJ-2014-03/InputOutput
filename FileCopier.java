@@ -2,6 +2,21 @@ import java.io.*;
 
 public class FileCopier {
     
+    public static void main(String[] args) {
+        
+        FileCopier fc = new FileCopier();
+        
+        fc.copier();
+    }
+    
+    /**
+    *
+    *   copier() method
+    *
+    *   copies the content of the first file to the second file
+    *
+    *
+    */
     
     private void copier() {
         String[] fileNames = getNames();
@@ -9,11 +24,11 @@ public class FileCopier {
         File file1 = new File(fileNames[0]);
         File file2 = new File(fileNames[1]);
         
-        BufferedReader in;
-        PrintWriter out;
+        BufferedReader in = null;
+        PrintWriter out = null;
         
         try {
-            String str;
+            String str = "";
             in = new BufferedReader(new FileReader(file1));
             out = new PrintWriter(file2);
             String line;
@@ -28,6 +43,36 @@ public class FileCopier {
                     }
                 }
             }
+        } catch (FileNotFoundException ex) {
+            System.out.println("File " + file1 + " Does not exist.");
+        }   catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            closeReader(in, out);
+        }
+    }
+    
+    /**
+    *
+    *   closeReader() methods closes the reader and writer passed as parameters
+    *
+    *   @param inReader the Reader Object to be closed
+    *   @param outWriter the Writer Object to be closed
+    *
+    */
+     
+    private void closeReader(Reader inReader, PrintWriter outWriter) {
+        try {
+            if (inReader != null) {
+                inReader.close();
+            }
+            if (outWriter != null) {
+                outWriter.close();
+            }
+        } catch (IOException ex) {
+                ex.printStackTrace();
+        }
+    }
              
     /**
     *
