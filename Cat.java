@@ -15,6 +15,16 @@ public class Cat {
         ct.showContents();
     }
     
+    /**
+    *
+    *   showContents() method prints the contents of a File
+    *
+    *   uses a BufferedReader to readLine() from the file provided by the user
+    *
+    *   @throws FileNotFoundException if the file does not exist or is a directory file
+    *   @throws IOException if an IOException is caught
+    *
+    */
     
     private void showContents () {
         File file = createFile();
@@ -44,7 +54,7 @@ public class Cat {
     *   calls the .close() method on the reader
     *   catches an IOException if the reader is null.
     *
-    *   @Param the Reader Object to be closed
+    *   @param the Reader Object to be closed
     *
     */
     private void closeReader(Reader reader) {
@@ -62,7 +72,7 @@ public class Cat {
     *   createFile() method returns a File
     *   the file name is provided by the getName() method
     *
-    *   @Return the File Object created with the user's input.
+    *   @return the File Object created with the user's input.
     *
     */
     private File createFile() {
@@ -73,7 +83,7 @@ public class Cat {
     *
     *   getName() method asks the user for the name of the File they want to read
     *
-    *   @Return the String of the user's input read from the console
+    *   @return the String of the user's input read from the console
     *
     */
     private String getName() {
