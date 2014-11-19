@@ -27,10 +27,17 @@ public class MakeDirectory {
     */
     
     private File createFile() {
-        File file = new File(getName());
-        return file;
+        return new File(getName());
     }
     
+    /**
+    *
+    *   Asks the user for a name for their new directory
+    *   reads the users input from the console
+    *
+    *   @Return the String of the user's input.
+    *
+    */
     
     private String getName() {
         System.out.print("Enter a name for the directory you want to create > ");
